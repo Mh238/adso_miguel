@@ -1,0 +1,40 @@
+<?php
+header("Content-Type: application/xls");
+header("Content-Disposition: attachment; filename= archivo.xls");
+?>
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="text-center">NUMERO DE DOCUMENTO</th>
+            <th scope="text-center">TIPO DE DOCUMENTO</th>
+            <th scope="text-center">NOMBRE</th>
+            <th scope="text-center">SEXO</th>
+            <th scope="text-center">FECHA DE NACIMIENTO</th>
+            <th scope="text-center">CORREO</th>
+            <th scope="text-center">TELEFONO</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php
+        include("../../GAES_4_CLINICS/basa_de_datos/conex.php");
+        $sql = "SELECT * FROM personas";
+        $ejecutar = mysqli_query($conn, $sql);
+        while ($fila = mysqli_fetch_array($ejecutar)) {
+
+
+        ?>
+            <tr>
+                <td><?php echo $fila[0] ?> </td>
+                <td><?php echo $fila[1] ?></td>
+                <td><?php echo $fila[2] ?></td>
+                <td><?php echo $fila[3] ?></td>
+                <td><?php echo $fila[4] ?></td>
+                <td><?php echo $fila[5] ?></td>
+                <td><?php echo $fila[6] ?></td>
+
+            </tr>
+        <?php
+        }  ?>
+
+</table>

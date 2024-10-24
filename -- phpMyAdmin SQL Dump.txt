@@ -1,0 +1,317 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-07-2023 a las 10:27:55
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `rn_clinics`
+--
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `procedimiento_almacenado` (IN `funcion` CHAR)   SELECT *FROM citas WHERE id_servicios LIKE concat('consulta general')$$
+
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `citas`
+--
+
+CREATE TABLE `citas` (
+  `id_citas` int(11) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `servicios` int(3) DEFAULT NULL,
+  `fecha_cita` date DEFAULT NULL,
+  `correo` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `citas`
+--
+
+INSERT INTO `citas` (`id_citas`, `id_usuario`, `servicios`, `fecha_cita`, `correo`) VALUES
+(20, 123456789, 1, '2023-07-10', 'prueba');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturacion`
+--
+
+CREATE TABLE `facturacion` (
+  `id_factura` int(11) NOT NULL,
+  `id_medico` int(11) DEFAULT NULL,
+  `id_cita` int(11) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `id_paciente` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `facturacion`
+--
+
+INSERT INTO `facturacion` (`id_factura`, `id_medico`, `id_cita`, `fecha`, `id_paciente`) VALUES
+(15, 15, 20, '2023-07-10', 123456789);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `historial`
+--
+
+CREATE TABLE `historial` (
+  `id_historial` int(11) NOT NULL,
+  `id_cita` int(11) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `id_trabajador` int(11) DEFAULT NULL,
+  `diagnostico` varchar(700) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `historial`
+--
+
+INSERT INTO `historial` (`id_historial`, `id_cita`, `id_usuario`, `id_trabajador`, `diagnostico`) VALUES
+(15, 20, 123456789, 15, 'prueba');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personas`
+--
+
+CREATE TABLE `personas` (
+  `id_persona` int(11) NOT NULL,
+  `tip_id` varchar(50) DEFAULT NULL,
+  `nombre` varchar(200) DEFAULT NULL,
+  `sex` varchar(1) DEFAULT NULL,
+  `fechnacim` date DEFAULT NULL,
+  `correo` varchar(350) DEFAULT NULL,
+  `telefono` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `personas`
+--
+
+INSERT INTO `personas` (`id_persona`, `tip_id`, `nombre`, `sex`, `fechnacim`, `correo`, `telefono`) VALUES
+(123456789, '1', 'PRUEBA', 'M', '2023-07-07', 'prueba@rnclinics.com', 123456789);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipodeusuario`
+--
+
+CREATE TABLE `tipodeusuario` (
+  `TipUsuId` int(11) NOT NULL,
+  `TipUsuNo` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tipodeusuario`
+--
+
+INSERT INTO `tipodeusuario` (`TipUsuId`, `TipUsuNo`) VALUES
+(1, 'CLIENTES'),
+(2, 'TRABAJADORES');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `trabajadores`
+--
+
+CREATE TABLE `trabajadores` (
+  `id_trabajador` int(11) NOT NULL,
+  `create_by` int(11) DEFAULT NULL,
+  `cargo` enum('recepcionista','doctor') DEFAULT NULL,
+  `correo` varchar(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `trabajadores`
+--
+
+INSERT INTO `trabajadores` (`id_trabajador`, `create_by`, `cargo`, `correo`) VALUES
+(15, 123456789, 'recepcionista', 'prueba@rnclinics.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `UsuId` int(11) NOT NULL,
+  `UsuPerId` int(11) NOT NULL,
+  `UseCor` varchar(150) NOT NULL,
+  `UseCon` varchar(150) NOT NULL,
+  `TipUsu` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`UsuId`, `UsuPerId`, `UseCor`, `UseCon`, `TipUsu`) VALUES
+(62, 123456789, 'prueba@rnclinics.com', '123456789', 2),
+(66, 123456789, 'prueba@gmail.com', '123456789', 1);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `citas`
+--
+ALTER TABLE `citas`
+  ADD PRIMARY KEY (`id_citas`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `facturacion`
+--
+ALTER TABLE `facturacion`
+  ADD PRIMARY KEY (`id_factura`),
+  ADD KEY `id_medico` (`id_medico`),
+  ADD KEY `id_cita` (`id_cita`),
+  ADD KEY `id_paciente` (`id_paciente`);
+
+--
+-- Indices de la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD PRIMARY KEY (`id_historial`),
+  ADD KEY `id_cita` (`id_cita`),
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_trabajador` (`id_trabajador`);
+
+--
+-- Indices de la tabla `personas`
+--
+ALTER TABLE `personas`
+  ADD PRIMARY KEY (`id_persona`);
+
+--
+-- Indices de la tabla `tipodeusuario`
+--
+ALTER TABLE `tipodeusuario`
+  ADD PRIMARY KEY (`TipUsuId`);
+
+--
+-- Indices de la tabla `trabajadores`
+--
+ALTER TABLE `trabajadores`
+  ADD PRIMARY KEY (`id_trabajador`),
+  ADD KEY `create_by` (`create_by`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`UsuId`),
+  ADD KEY `UsuPerId` (`UsuPerId`),
+  ADD KEY `TipUsu` (`TipUsu`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `citas`
+--
+ALTER TABLE `citas`
+  MODIFY `id_citas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `facturacion`
+--
+ALTER TABLE `facturacion`
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `historial`
+--
+ALTER TABLE `historial`
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `tipodeusuario`
+--
+ALTER TABLE `tipodeusuario`
+  MODIFY `TipUsuId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `trabajadores`
+--
+ALTER TABLE `trabajadores`
+  MODIFY `id_trabajador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `UsuId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `citas`
+--
+ALTER TABLE `citas`
+  ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `personas` (`id_persona`);
+
+--
+-- Filtros para la tabla `facturacion`
+--
+ALTER TABLE `facturacion`
+  ADD CONSTRAINT `facturacion_ibfk_1` FOREIGN KEY (`id_medico`) REFERENCES `trabajadores` (`id_trabajador`),
+  ADD CONSTRAINT `facturacion_ibfk_2` FOREIGN KEY (`id_cita`) REFERENCES `citas` (`id_citas`),
+  ADD CONSTRAINT `facturacion_ibfk_3` FOREIGN KEY (`id_paciente`) REFERENCES `personas` (`id_persona`);
+
+--
+-- Filtros para la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`id_cita`) REFERENCES `citas` (`id_citas`),
+  ADD CONSTRAINT `historial_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `personas` (`id_persona`),
+  ADD CONSTRAINT `historial_ibfk_3` FOREIGN KEY (`id_trabajador`) REFERENCES `trabajadores` (`id_trabajador`);
+
+--
+-- Filtros para la tabla `trabajadores`
+--
+ALTER TABLE `trabajadores`
+  ADD CONSTRAINT `trabajadores_ibfk_1` FOREIGN KEY (`create_by`) REFERENCES `personas` (`id_persona`);
+
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`UsuPerId`) REFERENCES `personas` (`id_persona`),
+  ADD CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`TipUsu`) REFERENCES `tipodeusuario` (`TipUsuId`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
