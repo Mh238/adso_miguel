@@ -1,0 +1,35 @@
+<?php
+header("Content-Type: application/xls");
+header("Content-Disposition: attachment; filename= archivo.xls");
+?>
+       <table id="example" class="table table-striped table-bordered" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th scope="text-center">CODIGO HISTORA CLINICA</th>
+                      <th scope="text-center">CODIGO CITA</th>
+                      <th scope="text-center">DOCUMENTO DE CLIENTE</th>
+                      <th scope="text-center">CODIGO DEL TRABAJADOR</th>
+                      <th scope="text-center">DIAGNOSTICO</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+<?php 
+include("../excel/conex.php");
+$sql = "SELECT * FROM historial";
+$ejecutar=mysqli_query($conn, $sql);
+while ($fila=mysqli_fetch_array($ejecutar)){
+
+
+?>
+<tr>
+    <td><?php echo $fila[0] ?> </td>
+    <td><?php echo $fila[1] ?></td>
+    <td><?php echo $fila[2]?></td>
+    <td><?php echo $fila[3]?></td>
+    <td><?php echo $fila[4]?></td>
+</tr>
+<?php 
+}  ?>
+
+              </table>
