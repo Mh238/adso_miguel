@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https: //fonts.googleapis.com/css2? family = Roboto: wght @ 300 & display = swap " rel=" stylesheet ">
+    <title>RN Clinics // Bienvenidos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css>">
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <div class="home-wrapper">
+        <header>
+            <div class="container">
+                <nav>
+                    <a href="#home" class="active">HOME</a>
+                    <a href="#servicios">SERVICIOS</a>
+                    <a href="#agendarcitas">AGENDAR CITAS</a>
+                    <a href="#contacto">COMENTARIOS</a>
+                    <a href="../../GAES_4_CLINICS/Pagina _principal/login-regist/logReg.php" class="active">Inicia Sesión usario</a>
+                    <a href="login-trabajador/form.html" class="active">Inicia Sesión Trabajador</a>
+                    <a href="presentacion.pdf" class="active">Presentacion</a>
+                </nav>
+            </div>
+        </header>
+        <section id="home" class="conteiner">
+            
+            <div class="divider"></div>
+            <br>
+            <center>
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo">
+              </div>
+            </center>
+              
+            <p>Niños sanos, corazones contentos </p>
+            <div class="social">
+                <a href="https://www.facebook.com/Consultorio-pedi%C3%A1trico-106879065389818"> <i>Facebook </i> </a>
+                <a href="https://twitter.com/PediatricoPed4?t=OkCPMCBh_XABdaaWX2bnoQ&s=08"> <i>Twitter </i> </a>
+                <a href="https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.instagram.com/accounts/login/&ved=2ahUKEwiovNup4574AhV4q3IEHVLaCIEQjBB6BAgDEAM&usg=AOvVaw0BRCgcMCVNSSLcNcVjPzsz"> <i>Instagram</i> </a>
+            </div>
+            <div class="social">
+                <a href="../Paginas_error/404.html"> <i>ERROR 404</i> </a>
+                <a href="../Paginas_error/500.html"> <i>ERROR 500</i> </a>
+            </div>
+        </section>
+    </div>
+    <section id="servicios" class="conteiner">
+        <h2>SERVICIOS</h2>
+        <div class="box">
+            <img src="css/images/consulta.png" alt="Consulta general" height="240px" width="240px">
+            <h3>Consulta general</h3>
+            <p>Observacion general del cuerpo icluyendo el peso, la altura, he incluso los sintomas del paciente. </p>
+        </div>
+        <div class="box">
+            <img src="css/images/dientes.png" alt="Consulta odontológica" height="240px" width="240px">
+            <h3>Consulta odontológica</h3>
+            <p>Cuidado general de la dentadura, limpiezas bucales, blanqueamiento, e incluso montajes de ortodoncia.</p>
+        </div>
+        <div class="box">
+            <img src="css/images/cerebro.png" alt="Ayuda psicológica" height="240px" width="240px">
+            <h3>Ayuda psicológica</h3>
+            <p>Se trata a pacientes desde los 7 años de edad ayudando en diferentes ámbitos de la psicología humana. </p>
+        </div>
+    </section>
+    <section id="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pFEiPZlpWsI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    <section id="agendarcitas">
+        <div class="conteiner">
+            <h2>AGENDAR CITAS</h2>
+        </div>
+        <div class="box">
+            </class=>
+            <img src="css/images/portafolio/odontologia.jpeg" alt="Consulta odontológica" height="280px" width="10px">
+            <a href="login-regist/index.html">
+                <h3>Consulta odontológica</h3>
+            </a>
+        </div>
+        <div class="box">
+            <img src="css/images/portafolio/psicologia.jpeg" alt="Ayuda psicológica" height="280px" width="50px">
+            <a href="login-regist/index.html">
+                <h3>Ayuda psicológica</h3>
+            </a>
+        </div>
+        <div class="box">
+            <img src="css/images/portafolio/general.jpeg" alt="Consulta general" height="300px" width="100px">
+            <a href="login-regist/index.html">
+                <h3>Consulta general</h3>
+            </a>
+        </div>
+        <div class="box">
+            <img src="css/images/portafolio/atencion al cliente.jpeg" alt="Ayuda psicológica" height="300px" width="50px">
+            <h3>Atención al cliente</h3>
+            <p>
+                Consulta por medio de las siguientes líneas telefónicas:<br>+57 312 5191306<br>+57 311 4870625<br>+57 322 4542269<br>
+            </p>
+        </div>
+        <div class="box">
+            <img src="css/images/portafolio/agendar cita.jpeg" alt="Ayuda psicológica" height="300px" width="40px">
+            <h3>Otros métodos de atención al cliente</h3>
+            <p>Consulta por el siguiente correo electrònico:<br>rnclinics@gmail.com
+        </div>
+        </div>
+    </section>
+    <section id="contacto">
+
+        <form action="https://formsubmit.co/rnclinics109@gmail.com">
+            <h1>COMENTARIOS</h1>
+            <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre completo">
+            <TEXTAREA class="controls" NAME="coment" ROWS=2 COLS=48></TEXTAREA>
+            <div><button>ENVIAR</button></div>
+
+        </form>
+    </section>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.43228293688!2d-74.086188!3d4.694707999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b25144634c9%3A0xaa39a3ad6b78b4cb!2sCentro%20Comercial%20Tit%C3%A1n%20Plaza!5e0!3m2!1ses-419!2sco!4v1687670713457!5m2!1ses-419!2sco" width="1887" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    <footer>
+        Av. Boyacá #80-94, Bogotá.
+    </footer>
+    <footer>
+        @ 2023 <strong> Consultorio pediatrico</strong>, Todo los Derechos Reservados
+    </footer>
+</body>
+</html>
+</body>
+</html>
