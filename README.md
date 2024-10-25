@@ -1,1 +1,1 @@
- El proyecto "SecurityConnect" se realiza usando metodología SCRUM.
+ El proyecto "Security Connect" se realiza usando la metodologia scrum
