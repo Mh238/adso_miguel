@@ -1,14 +1,24 @@
-### Proyecto Bas Seguridad y Control S.A.S
-<P>
-**Perspectiva del producto**
-</P>
+### "Página Web de Servicios Veterinarios".
+
+- "Esta página web tiene como objetivo ofrecer información sobre los servicios veterinarios disponibles, así como permitir a los clientes agendar citas."
 
 
-- "Security-Connect" sera una página independiente diseñada para comprar productos como extintores, botiquines, puertas y ventanas blindadas garantizando alertas de vencimiento y mantenimiento de productos.
+### Tecnologias utilizadas
+
+- HTML
+- CSS
+- JavaScript
+- React 
+- MongoDB 
 
 
+### Estructura del proyecto
 
+**public: **Contiene los archivos estáticos (HTML, CSS, imágenes).
 
-- Así mismo, tendra un apartado para mantenimiento de los mismos en una forma de “citas”, en donde el cliente recibirá la información de la visita para verificación y mantenimiento de los elementos que haya comprado.
+**src: **Contiene el código fuente de la aplicación.
+
+**components:** Contiene los componentes reutilizables.
+###  se realizara este proyecto con la metodologia agil Scrum
 
 
